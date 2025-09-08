@@ -1,0 +1,7 @@
+/*write a SQL statement to create a view named available. This view should contain all dates that are available at all listings */
+
+CREATE VIEW "available" AS
+SELECT "listings"."id", "listings"."property_type", "listings"."host_name", "availabilities"."date"
+FROM "listings"
+JOIN "availabilities" ON "availabilities"."listing_id" = "listings"."id"
+WHERE "availabilities"."available" = 'TRUE';
